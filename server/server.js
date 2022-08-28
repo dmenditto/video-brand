@@ -90,8 +90,12 @@ app.get("/test",(req,res) =>{
   res.send(`Test running at http://${hostname}:${port}/`)
 })
 
-app.listen(port, hostname, () => {
+/*app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
+});*/
+
+app.listen(port, () => {
+  console.log(`Server running at port:${port}/`);
 });
 
 addVideoWaterMarkwFFMPEG = (response) => {
