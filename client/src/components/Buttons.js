@@ -22,7 +22,7 @@ const Buttons = (props) => {
           color="primary"
           startIcon={<VideoCam />}
           component="span"
-          disabled={props.disabledSelectVideo}
+          disabled={props.uistateButton.NewVideoButton}
         >
           Select Video
         </Button>
@@ -34,7 +34,7 @@ const Buttons = (props) => {
         startIcon={<AddToQueue />}
         component="span"
         onClick={props.onAddWatermark}
-        disabled={props.disabledaddWatermark}
+        disabled={props.uistateButton.AddWaterMarkButton}
       >
         Add WaterMark
       </Button>
@@ -45,7 +45,7 @@ const Buttons = (props) => {
         startIcon={<AddToQueue />}
         component="span"
         onClick={props.onDownload}
-        disabled={props.disabledDownload}
+        disabled={props.uistateButton.DownloadButton}
       >
         Download
       </Button>

@@ -10,7 +10,7 @@ const Header = () => {
       <AppBar className="header appbar">
         <Toolbar>
           <Typography variant="h4" className="header title">
-            Video Brand
+            VideoWaterMark
           </Typography>
         </Toolbar>
       </AppBar>

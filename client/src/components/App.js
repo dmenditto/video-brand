@@ -41,7 +41,7 @@ export default class App extends Component {
       },
     });
 
-    axios.get("http://192.168.1.120:8000/cleanup").then((res) => {
+    axios.get("http://192.168.68.106:8000/cleanup").then((res) => {
       console.log("CleanedUp" + res);
     });
   };
@@ -56,7 +56,7 @@ export default class App extends Component {
     data.append("file", this.state.file);
     data.append("WMposition", this.state.WMposition);
     axios
-      .post("http://192.168.1.120:8000/upload", data, { responseType: "blob" })
+      .post("http://192.168.68.106:8000/upload", data, { responseType: "blob" })
       .then((res) => {
         this.setState({
           video: URL.createObjectURL(res.data),
@@ -74,7 +74,7 @@ export default class App extends Component {
   };
 
   onProgress = () => {
-    axios.get("http://192.168.1.120:8000/progress").then((res) => {
+    axios.get("http://192.168.68.106:8000/progress").then((res) => {
       this.setState({ progress: res.data.progress });
     });
   };
@@ -83,7 +83,7 @@ export default class App extends Component {
     const data = new FormData();
 
     axios
-      .post("http://192.168.1.120:8000/download", data, {
+      .post("http://192.168.68.106:8000/download", data, {
         responseType: "blob",
       })
       .then((res) => {
@@ -123,9 +123,7 @@ export default class App extends Component {
         </div>
         <div>
           <Buttons
-            disabledSelectVideo={this.state.UIStateButton.NewVideoButton}
-            disabledaddWatermark={this.state.UIStateButton.AddWaterMarkButton}
-            disabledDownload={this.state.UIStateButton.DownloadButton}
+            uistateButton={this.state.UIStateButton}
             onFileSelected={this.onFileSelected} //Handle Select Video button
             onAddWatermark={this.onAddWatermark}
             onDownload={this.onDownload}
